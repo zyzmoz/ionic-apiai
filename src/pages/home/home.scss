@@ -1,3 +1,70 @@
 page-home {
+  .scroll-content {
+    background-color: $dark;
+  }
+
+  
+
+  ion-avatar[item-left] {
+    margin-right: 0;
+  }
+
+  
+
+  ion-avatar[item-right] {
+    margin-left: 0;
+  }
+
+  .chat-item {
+    background-color: transparent !important;
+  }
+
+  .bubble {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 12px;
+    display: inline-block;
+    position: relative;
+	  width: 80%;
+	  height: auto;
+    background-color: $light;
+    border-radius: 2px; 
+    white-space: normal; 
+       
+  }  
+
+ 
+
+  .right {
+    float: right;       
+  }
+  
+  .you:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -20px;
+    right: auto;
+    top: 0px;
+    bottom: auto;
+    border: 22px solid;
+    border-color: $light transparent transparent transparent;
+  
+  }
+
+  .me:after {    
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: -20px;
+    left: auto;
+    top: 0px;
+    bottom: auto;
+    border: 22px solid;
+    border-color: $light transparent transparent transparent;
+  
+  }
 
 }

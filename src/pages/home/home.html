@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header hidden>
   <ion-navbar>
     <ion-title>
       Ionic Blank
@@ -7,8 +7,40 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-list no-lines>
+    <ion-item *ngFor="let message of messages" class="chat-item">
+      <ion-avatar *ngIf="message.sender == 'api'" item-left>
+        <img src="assets/imgs/robot.png" />
+      </ion-avatar>
+      <div *ngIf="message.sender == 'api'" class="bubble you">
+        <p>{{message.text}}</p>
+      </div>
+
+      <ion-avatar *ngIf="message.sender == 'user'" item-right>
+        <img src="assets/imgs/user.png"/>
+      </ion-avatar>
+      <div *ngIf="message.sender == 'user'" class="bubble right me">
+        <p>{{message.text}}</p>
+      </div>
+
+
+    </ion-item>
+  </ion-list>
+  <ion-fab bottom right>
+    <button ion-fab color="danger" (click)="sendVoice()">
+      <ion-icon name="mic"></ion-icon>
+    </button>
+  </ion-fab>
+
+
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-item>
+      <ion-input #input placeholder="Message" [(ngModel)]="text"></ion-input>
+      <button ion-button icon-only clear item-right (click)="sendText(); input.setFocus();">
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>
